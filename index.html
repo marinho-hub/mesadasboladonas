@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO & Social Media Meta Tags -->
+    <title>Mesa das Boladonas | Thay Marinho</title>
+    <meta name="description" content="A primeira Mesa das Boladonas do ano. Mulheres reais produzindo riqueza e expandindo seu reinado em 2026.">
+    <meta property="og:title" content="Mesa das Boladonas | Thay Marinho">
+    <meta property="og:description" content="Garanta seu lugar na mesa estratégica que vai definir o seu 2026.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/marinho-hub/oratoria-magnetica-assets/021e5847db41edfe7274b3741e9323c2b31d85a6/BOSS.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#cf0000">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg-white: #ffffff;
+            --text-dark: #0a0a0a;
+            --gold-base: #D4AF37;
+            --gold-shiny: linear-gradient(135deg, #bf953f, #e2b04a, #b38728, #c5a059, #aa771c);
+            --red-grad: linear-gradient(135deg, #cf0000 0%, #920000 100%);
+            --price-green: #1ed760;
+            --green-grad: linear-gradient(135deg, #1ed760 0%, #169c46 100%); 
+            --soft-gray: #fcfcfc;
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- TIMER BAR --- */
+        .top-timer-bar {
+            background: var(--red-grad);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--gold-base);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timer-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-wrap: nowrap;
+        }
+
+        #countdown-bar {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 2px;
+            background: rgba(0,0,0,0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--gold-base);
+        }
+
+        #countdown-bar span {
+            font-weight: 800;
+            color: var(--gold-base);
+            font-size: 1rem;
+        }
+
+        /* --- UI COMPONENTS --- */
+        .btn-cta {
+            background: var(--green-grad);
+            color: #fff;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            border: none;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(30, 215, 96, 0.3);
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+            width: auto;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(30, 215, 96, 0.5);
+        }
+
+        .red-text {
+            background: var(--red-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            display: inline-block;
+        }
+
+        .gold-shiny-text {
+            background: var(--gold-shiny);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://raw.githubusercontent.com/marinho-hub/oratoria-magnetica-assets/021e5847db41edfe7274b3741e9323c2b31d85a6/BOSS.jpg') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 20px 60px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 10vw, 4.5rem);
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: #eee;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- MANIFESTO --- */
+        .manifesto { padding: 80px 0 10px; text-align: center; }
+        .manifesto-text { font-size: clamp(1.2rem, 5vw, 1.8rem); font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 30px; }
+        .manifesto-highlight { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 0; }
+        .manifesto-highlight span { font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; border: 1px solid #ddd; }
+
+        /* --- PARA QUEM --- */
+        .para-quem { padding: 80px 0; background: var(--soft-gray); }
+        .para-quem-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .target-item { background: #fff; padding: 25px; border-left: 5px solid var(--gold-base); font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        /* --- DIVISORES --- */
+        .phrase-divider { background: #fff; padding: 25px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .phrase-track { display: inline-flex; animation: scroll 30s linear infinite; }
+        .divider-phrase { font-family: 'Playfair Display', serif; font-weight: 900; text-transform: uppercase; margin: 0 40px; font-size: 1.1rem; background: var(--gold-shiny); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- EXPERIÊNCIA --- */
+        .viver-header { padding: 80px 0 40px; text-align: center; }
+        .viver-header h2 {
+            background: var(--gold-shiny);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .fluid-row { display: flex; flex-wrap: wrap; width: 100%; align-items: stretch; }
+        .fluid-row:nth-child(even) { flex-direction: row-reverse; }
+        .fluid-image { flex: 1 1 500px; min-height: 400px; background-size: cover; background-position: center; }
+        .fluid-content { flex: 1 1 500px; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+        .fluid-content h4 { 
+            font-size: 1.8rem; 
+            margin-bottom: 20px; 
+            background: var(--gold-shiny);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        /* --- LOGISTICS --- */
+        .logistics { padding: 100px 0 40px; }
+        .logistics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .info-block { margin-bottom: 30px; }
+        .info-label { color: var(--gold-base); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 5px; }
+        .info-value { font-size: 1.5rem; font-weight: 800; }
+        .map-container { border: 2px solid var(--gold-base); border-radius: 15px; overflow: hidden; height: 350px; }
+        .why-text { background: var(--soft-gray); padding: 40px; border-left: 8px solid #cf0000; }
+
+        /* --- SWIPER COMUNIDADE --- */
+        .comunidade-experiencia { padding: 80px 0 20px; text-align: center; }
+        .swiper { width: 100%; padding: 40px 0; }
+        .swiper-slide { width: 310px; height: 210px; background: #000; overflow: hidden; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+        .swiper-slide-active img { opacity: 1; transform: scale(1.05); }
+
+        /* --- PRICING --- */
+        .bg-thay-fixed { 
+            background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                        url('https://raw.githubusercontent.com/marinho-hub/oratoria-magnetica-assets/021e5847db41edfe7274b3741e9323c2b31d85a6/header02.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+        .oferta { padding: 30px 0 100px; text-align: center; }
+        .oferta-final { padding: 30px 0 100px; text-align: center; }
+        .pricing-card { background: var(--red-grad); color: #fff; max-width: 650px; margin: 0 auto; padding: 60px 30px; border: 4px solid var(--gold-base); box-shadow: 0 30px 60px rgba(207, 0, 0, 0.3); }
+        .pricing-card h3 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; }
+        .scarcity-text { display: block; font-weight: 500; font-size: 1rem; margin-bottom: 30px; }
+        .price-installment { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; color: var(--price-green); font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .price-installment small { color: #fff; font-size: 1rem; text-shadow: none; margin-bottom: 5px; }
+        .price-installment span { font-size: clamp(3rem, 12vw, 5rem); line-height: 1; }
+        .price-at-sight { font-size: 1.2rem; margin-bottom: 30px; display: block; }
+        .price-at-sight b { font-weight: 800; border-bottom: 2px solid var(--gold-base); }
+
+        /* --- QUEM É THAY --- */
+        .quem-e { padding: 100px 0; }
+        .bio-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .bio-image { flex: 1 1 400px; box-shadow: 20px 20px 0 var(--gold-base); }
+        .bio-content { flex: 1 1 500px; }
+        .bio-content h2 { margin-bottom: 30px; font-size: 2.2rem; }
+        .bio-content p { margin-bottom: 20px; font-size: 1.1rem; color: #444; }
+
+        /* --- FAQ --- */
+        .faq { padding: 80px 0; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #fff; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 1.1rem; }
+        .faq-question span { font-size: 1.5rem; transition: 0.3s; }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: var(--transition); color: #666; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 25px; }
+        .faq-item.active .faq-question span { transform: rotate(45deg); }
+
+        footer { padding: 40px 0; text-align: center; background: #000; color: #666; font-size: 0.8rem; }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .bg-thay-fixed { background-attachment: scroll; }
+            .btn-cta { width: 100%; }
+            .fluid-image { min-height: 300px; }
+            .fluid-content { padding: 40px 20px; text-align: center; }
+            .hero { align-items: center; }
+            .price-installment span { font-size: 3.5rem; }
+            .logistics { padding-bottom: 30px; }
+            .comunidade-experiencia { padding-top: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TIMER BAR -->
+    <div class="top-timer-bar">
+        <div class="container">
+            <div class="timer-flex">
+                <p>Faltam </p>
+                <div id="countdown-bar">
+                    <span id="days">00</span>d
+                    <span id="hours">00</span>h
+                    <span id="minutes">00</span>m
+                    <span id="seconds">00</span>s
+                </div>
+                <p> para o nosso encontro! 🥂</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="brand-font">A PRIMEIRA MESA DAS <br> <span class="red-text">BOLADONAS</span> DO ANO</h1>
+            <p>Mulheres reais produzindo riqueza e expandindo seu reinado em 2026.</p>
+            <!-- Botão agora aponta para a seção de preço #comprar -->
+            <a href="#comprar" class="btn-cta">QUERO MEU LUGAR NA MESA</a>
+        </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto" data-aos="fade-up">
+        <div class="container">
+            <div class="manifesto-text">
+                "<span class="red-text">A Mesa das Boladonas</span> é o primeiro grande movimento do ano para empreendedoras que querem começar 2026 com <span class="red-text">estratégia, presença magnética e foco real em vendas.</span>"
+            </div>
+            <div class="manifesto-highlight">
+                <span>É um posicionamento</span>
+                <span>É um marco</span>
+                <span>É um ato de poder</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUEM -->
+    <section class="para-quem">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">PARA QUEM É A MESA?</h2>
+            <div class="para-quem-list">
+                <div class="target-item" data-aos="fade-right">Quer fortalecer sua presença e comunicação</div>
+                <div class="target-item" data-aos="fade-right" data-aos-delay="100">Deseja vender com mais segurança e magnetismo</div>
+                <div class="target-item" data-aos="fade-right" data-aos-delay="200">Sabe que networking estratégico acelera resultados</div>
+                <div class="target-item" data-aos="fade-right" data-aos-delay="300">Está comprometida em expandir seu reinado em 2026</div>
+                <div class="target-item" data-aos="fade-right" data-aos-delay="400">Mulheres reais produzindo riqueza juntas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDOR 1 -->
+    <div class="phrase-divider">
+        <div class="phrase-track">
+            <span class="divider-phrase">Networking</span><span class="divider-phrase">Oratória Magnética</span><span class="divider-phrase">Coffee Break</span><span class="divider-phrase">Mulheres Reais</span>
+            <span class="divider-phrase">Networking</span><span class="divider-phrase">Oratória Magnética</span><span class="divider-phrase">Coffee Break</span><span class="divider-phrase">Mulheres Reais</span>
+        </div>
+    </div>
+
+    <!-- EXPERIÊNCIA -->
+    <section class="experiencia">
+        <div class="viver-header" data-aos="fade-up">
+            <h2 class="section-title">O QUE VOCÊ VAI VIVER</h2>
+        </div>
+
+        <div class="fluid-row">
+            <div class="fluid-image" style="background-image: url('https://raw.githubusercontent.com/marinho-hub/oratoria-magnetica-assets/021e5847db41edfe7274b3741e9323c2b31d85a6/hero.jpg');"></div>
+            <div class="fluid-content" data-aos="fade-left">
+                <h4>Networking estratégico</h4>
+                <p>Conexões reais com mulheres que falam sobre crescimento e vendas. Onde as conversas viram negócios lucrativos.</p>
+            </div>
+        </div>
+
+        <div class="fluid-row">
+            <div class="fluid-image" style="background-image: url('https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-picth-bambu.jpg');"></div>
+            <div class="fluid-content" data-aos="fade-right">
+                <h4>Oratória Magnética</h4>
+                <p>Thay Marinho ensina como se comunicar com presença e autoridade para se tornar inesquecível no mercado.</p>
+            </div>
+        </div>
+
+        <div class="fluid-row">
+            <div class="fluid-image" style="background-image: url('https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-aluna.jpg');"></div>
+            <div class="fluid-content" data-aos="fade-left">
+                <h4>Melhor Pitch de Vendas</h4>
+                <p>Treine sua confiança e poder de persuasão na hora de vender seu negócio e seja notada pela sua força.</p>
+            </div>
+        </div>
+
+        <div class="fluid-row">
+            <div class="fluid-image" style="background-image: url('https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/coffe.jpg');"></div>
+            <div class="fluid-content" data-aos="fade-right">
+                <h4>Coffee Break Exclusivo</h4>
+                <p>Momento desenhado para networking de alto valor e conexões profundas que marcam o início do seu reinado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGISTICS -->
+    <section class="logistics">
+        <div class="container">
+            <div class="logistics-grid">
+                <div data-aos="fade-right">
+                    <h2 class="section-title" style="margin-bottom: 40px;">INFORMAÇÕES</h2>
+                    <div class="info-block">
+                        <span class="info-label">Data e Hora</span>
+                        <div class="info-value">22 de março | 8h às 12h</div>
+                    </div>
+                    <div class="info-block">
+                        <span class="info-label">Localização</span>
+                        <div class="info-value">Sua Palestra – BH</div>
+                        <p style="color: #666;">R. Rovigo, 800 – Bandeirantes, BH</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.9840332207943!2d-43.98772422396342!3d-19.88289458149141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6912328f237ed%3A0xc3335520e503375b!2sR.%20Rovigo%2C%20800%20-%20Bandeirantes%20(Pampulha)%2C%20Belo%20Horizonte%20-%20MG%2C%2031340-410!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="why-text" data-aos="fade-left">
+                    <h3 class="section-title" style="font-size: 1.6rem;">Por que a Mesa?</h3>
+                    <p>Porque boladona que começa o ano cercada de estratégia e mulheres reais, termina o ano expandindo seu reinado e colhendo vendas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMUNIDADE -->
+    <section class="comunidade-experiencia">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">FAÇA PARTE DESSA COMUNIDADE</h2>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay_plateia.jpg" alt="Thay e Plateia"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-picth-plateia.jpg" alt="Thay Mentoria Plateia"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/claudinha-celular.jpg" alt="Bastidores"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/meninas.jpg" alt="Comunidade Boladona"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/plateia.jpg" alt="Auditório Lotado"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-claudinha.jpg" alt="Interação Thay" style="object-position: top center;"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-lis.jpg" alt="Thay Mentoria"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-mentoradas.jpg" alt="Mentoradas Boladonas"></div>
+                <div class="swiper-slide"><img src="https://raw.githubusercontent.com/marinho-hub/mesadasboladonas/d957918d1a631cbcd61e60a3f1f34328fa6334e8/thay-palestrando-lateral.jpg" alt="Thay Palestrando"></div>
+            </div>
+        </div>
+        
+        <!-- DIVIDOR 2 (8x REPETIÇÃO) -->
+        <div class="phrase-divider" style="background: transparent; border:none; padding-bottom: 0;">
+            <div class="phrase-track">
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER 1 -->
+    <section class="oferta bg-thay-fixed" id="comprar">
+        <div class="container" data-aos="zoom-in">
+            <div class="pricing-card">
+                <h3>GARANTA SEU LUGAR NA MESA</h3>
+                <span class="scarcity-text">Vagas estritamente limitadas.</span>
+                <div class="price-installment">
+                    <small>12x de</small>
+                    <span>R$ 18,50</span>
+                </div>
+                <span class="price-at-sight">ou <b>R$ 179,90</b> à vista</span>
+                <a href="https://payfast.greenn.com.br/f2vuj7w" class="btn-cta">QUERO MINHA CADEIRA AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM É THAY -->
+    <section class="quem-e">
+        <div class="container">
+            <div class="bio-flex">
+                <div class="bio-image" data-aos="fade-right">
+                    <img src="https://raw.githubusercontent.com/marinho-hub/oratoria-magnetica-assets/021e5847db41edfe7274b3741e9323c2b31d85a6/jORNAL.jpg" alt="Thay Marinho">
+                </div>
+                <div class="bio-content" data-aos="fade-left">
+                    <h2>QUEM É THAY MARINHO?</h2>
+                    <p>Thay Marinho é a estrategista por trás do movimento que está redefinindo o papel da mulher empreendedora em 2026. Especialista em <span style="font-weight: 800;">Oratória Magnética</span>, ela entende que a voz é a ferramenta mais rápida para produzir riqueza.</p>
+                    <p>Reconhecida pela mídia por seu impacto, Thay já treinou centenas de mulheres para ocuparem seus lugares com autoridade inabalável, transformando presença em lucro real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq bg-thay-fixed">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">DÚVIDAS FREQUENTES</h2>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">Onde será exatamente? <span>+</span></div>
+                    <div class="faq-answer"><p>No espaço "Sua Palestra" em Belo Horizonte, na região da Pampulha (Rua Rovigo, 800).</p></div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">Como funciona o coffee break? <span>+</span></div>
+                    <div class="faq-answer"><p>Está incluso no valor do seu ingresso, sendo um momento ideal para networking.</p></div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">Para quem é este evento? <span>+</span></div>
+                    <div class="faq-answer"><p>Para empreendedoras que desejam fortalecer a sua comunicação e networking estratégico para 2026.</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIVIDOR 3 (8x REPETIÇÃO) -->
+        <div class="phrase-divider" style="background: transparent; border:none; padding-top: 60px;">
+            <div class="phrase-track">
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+                <span class="divider-phrase">↓ VIVA ESSA EXPERIÊNCIA ↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER FINAL -->
+    <section class="oferta-final bg-thay-fixed">
+        <div class="container" data-aos="zoom-in">
+            <div class="pricing-card">
+                <h3>GARANTA SEU LUGAR NA MESA</h3>
+                <span class="scarcity-text">Vagas estritamente limitadas.</span>
+                <div class="price-installment">
+                    <small>12x de</small>
+                    <span>R$ 18,50</span>
+                </div>
+                <span class="price-at-sight">ou <b>R$ 179,90</b> à vista</span>
+                <a href="https://payfast.greenn.com.br/f2vuj7w" class="btn-cta">QUERO MINHA CADEIRA AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thay Marinho | Mesa das Boladonas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function updateTimer() {
+            const target = new Date('March 22, 2026 08:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2.5,
+                slideShadows: false,
+            },
+            breakpoints: {
+                320: { spaceBetween: 15 },
+                768: { spaceBetween: 30 }
+            }
+        });
+
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const parent = q.parentElement;
+                const isActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+                if (!isActive) parent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
