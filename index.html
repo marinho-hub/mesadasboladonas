@@ -16,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
     
     <!-- External Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -56,6 +56,7 @@
         h1, h2, h3, .brand-font {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+            font-style: italic;
         }
 
         img { max-width: 100%; height: auto; display: block; }
@@ -182,10 +183,11 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2rem, 10vw, 4.5rem);
+            font-size: clamp(1.8rem, 8vw, 3.8rem);
             color: #fff;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 15px;
+            font-style: italic;
         }
 
         .hero-content p {
@@ -211,7 +213,7 @@
         /* --- DIVISORES --- */
         .phrase-divider { background: #fff; padding: 25px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .phrase-track { display: inline-flex; animation: scroll 30s linear infinite; }
-        .divider-phrase { font-family: 'Playfair Display', serif; font-weight: 900; text-transform: uppercase; margin: 0 40px; font-size: 1.1rem; background: var(--gold-shiny); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .divider-phrase { font-family: 'Playfair Display', serif; font-weight: 900; text-transform: uppercase; margin: 0 40px; font-size: 1.1rem; background: var(--gold-shiny); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- EXPERIÊNCIA --- */
@@ -221,6 +223,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+            font-style: italic;
         }
         .fluid-row { display: flex; flex-wrap: wrap; width: 100%; align-items: stretch; }
         .fluid-row:nth-child(even) { flex-direction: row-reverse; }
@@ -234,6 +237,7 @@
             -webkit-text-fill-color: transparent;
             display: inline-block;
             font-weight: 800;
+            font-style: italic;
         }
 
         /* --- LOGISTICS --- */
@@ -261,7 +265,7 @@
         .oferta { padding: 30px 0 100px; text-align: center; }
         .oferta-final { padding: 30px 0 100px; text-align: center; }
         .pricing-card { background: var(--red-grad); color: #fff; max-width: 650px; margin: 0 auto; padding: 60px 30px; border: 4px solid var(--gold-base); box-shadow: 0 30px 60px rgba(207, 0, 0, 0.3); }
-        .pricing-card h3 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 1.8rem; margin-bottom: 10px; text-transform: uppercase; font-style: italic; }
         .scarcity-text { display: block; font-weight: 500; font-size: 1rem; margin-bottom: 30px; }
         .price-installment { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; color: var(--price-green); font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .price-installment small { color: #fff; font-size: 1rem; text-shadow: none; margin-bottom: 5px; }
@@ -274,7 +278,7 @@
         .bio-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
         .bio-image { flex: 1 1 400px; box-shadow: 20px 20px 0 var(--gold-base); }
         .bio-content { flex: 1 1 500px; }
-        .bio-content h2 { margin-bottom: 30px; font-size: 2.2rem; }
+        .bio-content h2 { margin-bottom: 30px; font-size: 2.2rem; font-style: italic; }
         .bio-content p { margin-bottom: 20px; font-size: 1.1rem; color: #444; }
 
         /* --- FAQ --- */
@@ -295,7 +299,22 @@
             .btn-cta { width: 100%; }
             .fluid-image { min-height: 300px; }
             .fluid-content { padding: 40px 20px; text-align: center; }
-            .hero { align-items: center; }
+            .hero { 
+                align-items: flex-end; /* Posiciona o conteúdo na parte inferior */
+                padding-bottom: 40px;
+            }
+            .hero-content {
+                padding-bottom: 20px;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem; /* Diminuído para não ficar tão grande */
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
             .price-installment span { font-size: 3.5rem; }
             .logistics { padding-bottom: 30px; }
             .comunidade-experiencia { padding-top: 30px; }
@@ -325,7 +344,7 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="brand-font">A PRIMEIRA MESA DAS <br> <span class="red-text">BOLADONAS</span> DO ANO</h1>
+            <h1 class="brand-font">A PRIMEIRA MESA DAS <br> <span class="gold-shiny-text">BOLADONAS DO ANO</span></h1>
             <p>Mulheres reais produzindo riqueza e expandindo seu reinado em 2026.</p>
             <!-- Botão agora aponta para a seção de preço #comprar -->
             <a href="#comprar" class="btn-cta">QUERO MEU LUGAR NA MESA</a>
@@ -412,7 +431,7 @@
         <div class="container">
             <div class="logistics-grid">
                 <div data-aos="fade-right">
-                    <h2 class="section-title" style="margin-bottom: 40px;">INFORMAÇÕES</h2>
+                    <h2 class="section-title" style="margin-bottom: 40px;">ONDE E QUANDO?</h2>
                     <div class="info-block">
                         <span class="info-label">Data e Hora</span>
                         <div class="info-value">22 de março | 8h às 12h</div>
